@@ -1,6 +1,7 @@
 package org.example.vendingmachinestate;
 
 import org.example.Product;
+import org.example.ProductFactory;
 
 public class IdleState implements VendingMachineState {
 
@@ -11,9 +12,12 @@ public class IdleState implements VendingMachineState {
 
     @Override
     public void selectProduct(VendingMachineContext context, String product) {
-        //set product
-        //need to find how to get product type and price and quantity for the specified product
-        //reduce the quantity of the product
+        Product prod = ProductFactory.getProduct(product);
+        context.setSelectedProduct(prod);
+        int quantity = context.getSelectedProduct().getQuantity();
+        quantity--;
+        context.getSelectedProduct().setQuantity(quantity);
+
         System.out.println("Thanks for selecting " + product + "Please pay ");
         context.setCurrentState(new AcceptingPaymentState());
     }
