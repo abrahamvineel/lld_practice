@@ -11,14 +11,11 @@ public class IdleState implements VendingMachineState {
     }
 
     @Override
-    public void selectProduct(VendingMachineContext context, String product) {
-        Product prod = ProductFactory.getProduct(product);
+    public void selectProduct(VendingMachineContext context, String productName) {
+        Product prod = ProductFactory.getProduct(productName);
         context.setSelectedProduct(prod);
-        int quantity = context.getSelectedProduct().getQuantity();
-        quantity--;
-        context.getSelectedProduct().setQuantity(quantity);
 
-        System.out.println("Thanks for selecting " + product + "Please pay ");
+        System.out.println("Thanks for selecting " + productName + "Please pay " + prod.getPrice());
         context.setCurrentState(new AcceptingPaymentState());
     }
 
