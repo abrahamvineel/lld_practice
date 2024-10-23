@@ -3,12 +3,12 @@ package org.example.vendingmachinestate;
 public class DispenseProductState implements VendingMachineState{
 
     @Override
-    public void insertMoney(VendingMachineContext context, double amount) {
+    public void insertMoney(VendingMachineContext context) {
         System.out.println("Please collect the product");
     }
 
     @Override
-    public void selectProduct(VendingMachineContext context, String product) {
+    public void selectProduct(VendingMachineContext context) {
         System.out.println("Please collect the product");
     }
 

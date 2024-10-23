@@ -2,9 +2,16 @@ package org.example.vendingmachinestate;
 
 import org.example.Product;
 
+import java.util.Scanner;
+
 public class AcceptingPaymentState implements VendingMachineState{
     @Override
-    public void insertMoney(VendingMachineContext context, double amount) {
+    public void insertMoney(VendingMachineContext context) {
+        System.out.println("Please insert the amount");
+
+        Scanner sc = new Scanner(System.in);
+        double amount = sc.nextDouble();
+
         Product product = context.getSelectedProduct();
         double diff = Math.abs(amount - product.getPrice());
         if (diff == 0.0) {
@@ -12,11 +19,13 @@ public class AcceptingPaymentState implements VendingMachineState{
         } else {
             System.out.println("Please collect the remaining amount " + diff);
         }
-        context.setCurrentState(new DispenseProductState());
+        VendingMachineState dispenseProductState = new DispenseProductState();
+        context.setCurrentState(dispenseProductState);
+        dispenseProductState.dispenseProduct(context);
     }
 
     @Override
-    public void selectProduct(VendingMachineContext context, String product) {
+    public void selectProduct(VendingMachineContext context) {
         System.out.println("Please insert the amount");
     }
 

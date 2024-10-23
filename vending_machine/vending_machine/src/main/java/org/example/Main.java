@@ -1,5 +1,8 @@
 package org.example;
 
+import org.example.vendingmachinestate.VendingMachineContext;
+import org.example.vendingmachinestate.VendingMachineState;
+
 public class Main {
     public static void main(String[] args) {
         /*
@@ -11,5 +14,12 @@ public class Main {
           The machine should provide an interface for restocking products and collecting money.
           The machine should handle exceptional scenarios, such as insufficient funds or out-of-stock products.
         */
+
+        VendingMachineContext context = new VendingMachineContext();
+        VendingMachineState state = context.getCurrentState();
+
+        state.selectProduct(context);
+
+
     }
 }
