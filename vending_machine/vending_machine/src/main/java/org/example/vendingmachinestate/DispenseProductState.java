@@ -19,5 +19,6 @@ public class DispenseProductState implements VendingMachineState{
         context.getSelectedProduct().setQuantity(quantity);
 
         System.out.println("Please collect the product");
+        context.setCurrentState(new IdleState());
     }
 }

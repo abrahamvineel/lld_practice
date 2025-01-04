@@ -14,12 +14,11 @@ public class Main {
           The machine should provide an interface for restocking products and collecting money.
           The machine should handle exceptional scenarios, such as insufficient funds or out-of-stock products.
         */
-
         VendingMachineContext context = new VendingMachineContext();
-        VendingMachineState state = context.getCurrentState();
+        while (true) {
+            VendingMachineState state = context.getCurrentState();
 
-        state.selectProduct(context);
-
-
+            state.selectProduct(context);
+        }
     }
 }
