@@ -17,6 +17,7 @@ public class Main {
         VendingMachineContext context = new VendingMachineContext();
         while (true) {
             VendingMachineState state = context.getCurrentState();
+
             state.selectProduct(context);
         }
     }
