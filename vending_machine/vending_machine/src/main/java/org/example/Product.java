@@ -7,6 +7,7 @@ public class Product {
     private ProductType type;
     private int quantity;
 
+
     public Product(String name, double price, ProductType type, int quantity) {
         this.name = name;
         this.price = price;
