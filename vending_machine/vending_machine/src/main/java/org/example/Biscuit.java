@@ -5,4 +5,3 @@ public class Biscuit extends Product{
         super(name, price, ProductType.BISCUIT, quantity);
     }
 }
-
