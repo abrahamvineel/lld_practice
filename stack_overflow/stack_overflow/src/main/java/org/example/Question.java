@@ -11,6 +11,7 @@ public class Question {
     private final Date createdAt;
     private List<Answer> answers;
 
+
     public Question(int id, String title, String content, Date createdAt, List<Answer> answers) {
         this.id = id;
         this.title = title;
