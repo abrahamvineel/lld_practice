@@ -5,3 +5,4 @@ public class Chocolate extends Product{
         super(name, price, ProductType.CHOCOLATE, quantity);
     }
 }
+
