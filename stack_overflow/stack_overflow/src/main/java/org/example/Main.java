@@ -11,7 +11,6 @@ public class Main {
         The system should assign reputation score to users based on their activity and the quality of their contributions.
         The system should handle concurrent access and ensure data consistency.
          */
-
         System.out.println("Hello world!");
     }
 
