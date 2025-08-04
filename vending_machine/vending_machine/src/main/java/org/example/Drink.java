@@ -6,3 +6,4 @@ public class Drink extends Product{
         super(name, price, ProductType.DRINK,  quantity); 
     }
 }
+
