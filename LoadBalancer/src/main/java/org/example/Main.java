@@ -6,6 +6,11 @@ import java.util.List;
 public class Main {
     private static int currentServerIndex = 0;
 
+    static class Server {
+        String name;
+        int activeConnections = 0;
+    }
+
     public static void main(String[] args) {
         List<String> serverAddresses = List.of("server1", "server2");
         roundRobin(serverAddresses);
@@ -30,5 +35,18 @@ public class Main {
 
         String server = expandedServers.get(currentServerIndex);
         currentServerIndex = (currentServerIndex + 1) % expandedServers.size();
+    }
+
+    private static Server leastConnections(List<Server> servers) {
+        Server selected = servers.get(0);
+        int minConnections = Integer.MAX_VALUE;
+
+        for (Server server : servers) {
+            if(server.activeConnections < minConnections) {
+                selected = server;
+                minConnections = server.activeConnections;
+            }
+        }
+        return selected;
     }
 }
