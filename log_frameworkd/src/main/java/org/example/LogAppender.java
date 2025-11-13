@@ -1,2 +1,4 @@
-package org.example;public interface LogAppender {
+package org.example;
+
+public interface LogAppender {
 }
